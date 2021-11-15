@@ -1,6 +1,8 @@
 // https://dkprojects.net/openscad-threads/
 use <lib/threads.scad>
 
+parts = ["base", "top"];
+
 // unit conversion
 mm_per_inch = 25.4;
 
@@ -21,26 +23,28 @@ d = 25;
 r = 3;
 d2 = d + 2*r;
 
+
 module twisty_base() {
   difference() {
     // main twisty cylinder
     linear_extrude(b_h, convexity=10, twist=-155, slices=250, scale=1.5){
       offset(r=3)
-        circle(r=b_d/2, $fn=12);
+        circle(r=b_d/2, $fn=6);
     }
     // minus faucet thread - 3/8, 16 UNC
     if (!fast) {
       translate([0,0, 0])
         english_thread(diameter=3/8, threads_per_inch=16,
                length=(15)/mm_per_inch, internal=true,
-      slop_mm=0.5);
+      slop_mm=0.5); // 0.5 was snug but good once broken in
     }
   }
   // + top male thread
   if (!fast) {
     translate([0,0,b_h])
       english_thread(diameter=3/4, threads_per_inch=8,
-             length=(15)/mm_per_inch, internal=false);
+             length=(15)/mm_per_inch, internal=false, 
+             slop_mm=-1.0); // 1.0 slop fit nicely
   }
 }
 
@@ -98,10 +102,19 @@ module apple() {
 // Main 
 // ---------------
 
-//handle
-twisty_base();
 
-//translate([0,0,b_h + 0])
-//top();
 
-    
+echo ("checking parts...")
+
+for(p=parts) {
+  //echo("part", p);
+  if (p == "base") {
+    echo(">>>>> rendering base")
+    twisty_base();
+  }
+  if (p == "top") {
+    echo(">>>>> rendering top")
+    //translate([0,0,b_h + 0])
+    top();
+  }
+}  
