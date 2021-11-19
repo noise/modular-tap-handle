@@ -1,5 +1,6 @@
-openscad -o stl/tap-handle-base.stl modular-tap-handle.scad -D 'parts=["base"]'
-openscad -o stl/tap-top-apple.stl modular-tap-handle.scad -D 'parts=["top"]' -D 'icon="apple"'
-openscad -o stl/tap-top-barley.stl modular-tap-handle.scad -D 'parts=["top"]' -D 'icon="barley"'
-openscad -o stl/tap-top-hops.stl modular-tap-handle.scad -D 'parts=["top"]' -D 'icon="hops"'
-openscad -o stl/tap-handle-all.stl modular-tap-handle.scad -D 'parts=["top","base"]'
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Rendering STLs <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+openscad modular-tap-handle.scad -o stl/tap-handle-base.stl -D 'parts=["base"]'
+openscad modular-tap-handle.scad -o stl/tap-top-apple.stl -D 'parts=["top"]' -D 'icon="apple"'
+openscad modular-tap-handle.scad -o stl/tap-top-barley.stl -D 'parts=["top"]' -D 'icon="barley"'
+openscad modular-tap-handle.scad -o stl/tap-top-hops.stl -D 'parts=["top"]' -D 'icon="hops"'
+openscad modular-tap-handle.scad -o stl/tap-handle-all.stl -D 'parts=["base","top"]'

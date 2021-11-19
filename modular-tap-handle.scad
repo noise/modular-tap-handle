@@ -132,14 +132,18 @@ module hops() {
 echo ("checking parts...")
 
 for(p=parts) {
-  //echo("part", p);
+  echo(">>>>> rendering ", p);
   if (p == "base") {
-    echo(">>>>> rendering base")
     twisty_base();
   }
   if (p == "top") {
-    echo(">>>>> rendering top")
-    //translate([0,0,b_h + 0])
-    top();
+    if (parts == ["base", "top"]) {
+      echo("BOOOOOOO")
+      translate([0,0,b_h + 0])
+      top();
+    }
+    else {
+      top();
+    }
   }
 }  

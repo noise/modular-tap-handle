@@ -6,7 +6,7 @@
 * ✅ parameterize the icon
 * steal from this makefile: https://github.com/revarbat/snappy-reprap/blob/master/Makefile
 * prep for publishing:
-  * img renders
+  * ✅ img renders
   * description
   * ?
  
