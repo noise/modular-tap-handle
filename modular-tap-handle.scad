@@ -2,6 +2,7 @@
 use <lib/threads.scad>
 
 parts = ["base", "top"];
+icon = "apple"; // "barley", "hops"
 
 // unit conversion
 mm_per_inch = 25.4;
@@ -77,11 +78,23 @@ module top() {
         english_thread(diameter=3/4, threads_per_inch=8,
               length=(20)/mm_per_inch, internal=true);
       }
+      else {
+        cube();
+      }
     }
 
     // + design engraving
-    translate([0,0,0])
-    apple();
+    translate([0, 0,0])
+    echo("icon: ", icon);
+    if (icon == "apple") {
+      apple();
+    }
+    else if (icon == "barley") {
+      barley();
+    }
+    else if (icon == "hops") {
+      hops();
+    }
   }
 }
 
@@ -94,16 +107,28 @@ module apple() {
     translate([-20,-d/2-2,12])  
     rotate([90,0,0])
       linear_extrude(4,center=true)
-        scale(11) import("apple-logo.dxf");
+        scale(11) import("icons/apple-logo.dxf");
 }
 
+module barley() {
+    color("yellow")
+    translate([0,-d/2-2,29])  
+    rotate([90,0,0])
+      linear_extrude(4,center=true)
+        scale(.35) import("icons/barley2.svg", dpi=96, center=true);
+}
+
+module hops() {
+    color("green")
+    translate([0,-d/2-2,29])  
+    rotate([90,0,0])
+      linear_extrude(4,center=true)
+        scale(2.6) import("icons/hops.svg", dpi=96, center=true);
+}
 
 // ---------------
 // Main 
 // ---------------
-
-
-
 echo ("checking parts...")
 
 for(p=parts) {

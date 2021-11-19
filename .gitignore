@@ -1,5 +1,7 @@
 stl/
 
+.DS_Store
+
 # emacs
 *~
 .\#*
