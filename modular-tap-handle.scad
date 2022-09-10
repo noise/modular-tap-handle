@@ -2,7 +2,7 @@
 use <lib/threads.scad>
 
 parts = ["base", "top"];
-icon = "apple"; // "barley", "hops"
+icon = "h2o"; // "apple";  "barley", "hops", "h2o"
 
 // unit conversion
 mm_per_inch = 25.4;
@@ -92,6 +92,9 @@ module top() {
     else if (icon == "barley") {
       barley();
     }
+    else if (icon == "h2o") {
+      h2o();
+    }
     else if (icon == "hops") {
       hops();
     }
@@ -116,6 +119,14 @@ module barley() {
     rotate([90,0,0])
       linear_extrude(4,center=true)
         scale(.35) import("icons/barley2.svg", dpi=96, center=true);
+}
+
+module h2o() {
+    color("blue")
+    translate([-29.3,-d/2-2,20])
+    rotate([90,0,0])
+      linear_extrude(4,center=true)
+        scale(.215) import("icons/h2o.svg", dpi=96, center=false);
 }
 
 module hops() {

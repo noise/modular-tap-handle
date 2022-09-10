@@ -6,6 +6,8 @@ openscad  --imgsize=1600,1600 --projection=p --viewall --colorscheme=DeepOcean \
 openscad  --imgsize=1600,1600 --projection=p --viewall --colorscheme=DeepOcean \
     modular-tap-handle.scad -o img/tap-top-barley.png -D 'parts=["top"]' -D 'icon="barley"'
 openscad  --imgsize=1600,1600 --projection=p --viewall --colorscheme=DeepOcean \
+    modular-tap-handle.scad -o img/tap-top-h2o.png -D 'parts=["top"]' -D 'icon="h2o"'
+openscad  --imgsize=1600,1600 --projection=p --viewall --colorscheme=DeepOcean \
     modular-tap-handle.scad -o img/tap-top-hops.png -D 'parts=["top"]' -D 'icon="hops"'
 openscad  --render --imgsize=1600,1600 --projection=p --viewall --colorscheme=DeepOcean --preview=throwntogether \
     modular-tap-handle.scad -o img/tap-handle-base.png -D 'parts=["base"]' 
