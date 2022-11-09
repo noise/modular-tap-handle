@@ -21,4 +21,6 @@
 Not sure how others manage to print threads that fit, but on my setup the original was unworkably tight. Added a "slop" factor to the included threads lib (thanks Dan Kirshner). 0.5mm slop for the 3/8" faucet thread and 1.0mm slop for the top 3/4" thread worked well (yes, I know I'm evil for mixing units!)
 
 
+## Credits
 
+* Inspired by [this model](https://www.youmagine.com/designs/threaded-labeled-beer-tap-handle)
